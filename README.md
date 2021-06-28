@@ -1,6 +1,8 @@
 # cash_register_app
 
-A toy cash register
+An app that simulates a cash register. Scan barcodes to add items to your cart\*, see your total, and check out by scanning your account card.
+
+*\*Must first define item prices in settings*
 
 ## Getting Started
 
