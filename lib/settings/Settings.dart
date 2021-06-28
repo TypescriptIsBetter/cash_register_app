@@ -49,8 +49,8 @@ class _Settings extends State<Settings> {
                 backgroundColor: MaterialStateProperty.all(Colors.red)
               ),
             ),
-            TextButton(
-              child: new Text("OK", style: TextStyle(color: Colors.white, backgroundColor: Colors.green)),
+            OutlinedButton(
+              child: new Text("OK", style: TextStyle(color: Colors.white)),
               onPressed: () {
                 // Prevent it from interfering with the storage mechanism
                 String itemName = itemNameField.text.replaceAll("|", "");
@@ -58,6 +58,10 @@ class _Settings extends State<Settings> {
                 prefs.setString("item-$code", "$itemName|$itemPrice");
                 Navigator.pop(context);
               },
+              style: ButtonStyle(
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
+                  backgroundColor: MaterialStateProperty.all(Colors.green)
+              ),
             )
           ],
         );
@@ -76,9 +80,13 @@ class _Settings extends State<Settings> {
       showDialog(context: context, builder: (context) => AlertDialog(
         title: Text(message),
         actions: [
-          TextButton(
-            child: new Text("OK", style: TextStyle(color: Colors.white, backgroundColor: Colors.blue)),
+          OutlinedButton(
+            child: new Text("OK", style: TextStyle(color: Colors.white)),
             onPressed: () => Navigator.pop(context),
+            style: ButtonStyle(
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
+                backgroundColor: MaterialStateProperty.all(Colors.blue)
+            ),
           )
         ],
       ));
@@ -98,9 +106,13 @@ class _Settings extends State<Settings> {
         title: Text("Account balance"),
         content: Text(message),
         actions: [
-          TextButton(
-            child: new Text("OK", style: TextStyle(color: Colors.white, backgroundColor: Colors.blue)),
+          OutlinedButton(
+            child: new Text("OK", style: TextStyle(color: Colors.white)),
             onPressed: () => Navigator.pop(context),
+            style: ButtonStyle(
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
+                backgroundColor: MaterialStateProperty.all(Colors.blue)
+            ),
           )
         ],
       ));
@@ -128,16 +140,24 @@ class _Settings extends State<Settings> {
             ],
           ),
           actions: [
-            TextButton(
-              child: new Text("Cancel", style: TextStyle(color: Colors.white, backgroundColor: Colors.red)),
+            OutlinedButton(
+              child: new Text("Cancel", style: TextStyle(color: Colors.white)),
               onPressed: () => Navigator.pop(context),
+              style: ButtonStyle(
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
+                  backgroundColor: MaterialStateProperty.all(Colors.red)
+              ),
             ),
-            TextButton(
-              child: new Text("OK", style: TextStyle(color: Colors.white, backgroundColor: Colors.green)),
+            OutlinedButton(
+              child: new Text("OK", style: TextStyle(color: Colors.white)),
               onPressed: () {
                 prefs.setDouble("bal-$code", double.parse(balanceField.text));
                 Navigator.pop(context);
               },
+              style: ButtonStyle(
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
+                  backgroundColor: MaterialStateProperty.all(Colors.green)
+              ),
             )
           ],
         );
