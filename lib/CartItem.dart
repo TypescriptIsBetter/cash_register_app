@@ -12,7 +12,6 @@ class CartItem {
   Widget build(BuildContext context) {
     return
       Container(
-        color: Colors.lightGreenAccent,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

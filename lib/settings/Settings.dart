@@ -33,13 +33,15 @@ class _Settings extends State<Settings> {
       showDialog(context: context, builder: (context) {
         return AlertDialog(
           title: Text("Update item"),
-          content: Column(
-            children: [
-              Text("Item name: "),
-              TextField(controller: itemNameField,),
-              Text("Item price: "),
-              TextField(controller: itemPriceField)
-            ],
+          content: IntrinsicHeight(
+            child: Column(
+              children: [
+                Text("Item name: "),
+                TextField(controller: itemNameField,),
+                Text("Item price: "),
+                TextField(controller: itemPriceField)
+              ],
+            ),
           ),
           actions: [
             OutlinedButton(
@@ -137,11 +139,13 @@ class _Settings extends State<Settings> {
       showDialog(context: context, builder: (context) {
         return AlertDialog(
           title: Text("Update balance"),
-          content: Column(
-            children: [
-              Text("New balance: "),
-              TextField(controller: balanceField,),
-            ],
+          content: IntrinsicHeight(
+            child: Column(
+              children: [
+                Text("New balance: "),
+                TextField(controller: balanceField,),
+              ],
+            )
           ),
           actions: [
             OutlinedButton(
