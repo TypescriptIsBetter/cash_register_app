@@ -17,7 +17,8 @@ class CartItem {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('$itemName', textScaleFactor: 2,),
-            Text('\$$price', textScaleFactor: 2,)
+            // Hide double imprecision
+            Text('\$' + price.toStringAsFixed(2), textScaleFactor: 2,)
           ],
         )
       );

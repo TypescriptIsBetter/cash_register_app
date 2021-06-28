@@ -15,6 +15,7 @@ class _Settings extends State<Settings> {
 
   void addItem(BuildContext context) {
     FlutterBarcodeScanner.scanBarcode("#ff6666", "Cancel", false, ScanMode.BARCODE).then((code) async {
+      if (code == "-1") return;
       SharedPreferences prefs = await SharedPreferences.getInstance();
       TextEditingController itemNameField;
       TextEditingController itemPriceField;
@@ -71,6 +72,7 @@ class _Settings extends State<Settings> {
 
   void removeItem(BuildContext context) {
     FlutterBarcodeScanner.scanBarcode("#ff6666", "Cancel", false, ScanMode.BARCODE).then((code) async {
+      if (code == "-1") return;
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String message = "Item doesn't exist.";
       if (prefs.containsKey("item-$code")) {
@@ -95,6 +97,7 @@ class _Settings extends State<Settings> {
 
   void getBal(BuildContext context) {
     FlutterBarcodeScanner.scanBarcode("#ff6666", "Cancel", false, ScanMode.BARCODE).then((code) async {
+      if (code == "-1") return;
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String message = "$code has a balance of \$0.00";
       if (prefs.containsKey("bal-$code")) {
@@ -121,6 +124,7 @@ class _Settings extends State<Settings> {
 
   void setBal(BuildContext context) {
     FlutterBarcodeScanner.scanBarcode("#ff6666", "Cancel", false, ScanMode.BARCODE).then((code) async {
+      if (code == "-1") return;
       SharedPreferences prefs = await SharedPreferences.getInstance();
       TextEditingController balanceField;
       // Prefill info if already exists
