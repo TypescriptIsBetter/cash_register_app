@@ -1,3 +1,4 @@
+import 'package:cash_register_app/utils/PopupMessage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
@@ -81,19 +82,7 @@ class _Settings extends State<Settings> {
         prefs.remove("item-$code");
         message = "Item deleted.";
       }
-      showDialog(context: context, builder: (context) => AlertDialog(
-        title: Text(message),
-        actions: [
-          OutlinedButton(
-            child: new Text("OK", style: TextStyle(color: Colors.white)),
-            onPressed: () => Navigator.pop(context),
-            style: ButtonStyle(
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
-                backgroundColor: MaterialStateProperty.all(Colors.blue)
-            ),
-          )
-        ],
-      ));
+      showDialog(context: context, builder: (context) => createPopupMessage(context, 'Item Modification Result', message));
     });
   }
 
@@ -107,20 +96,7 @@ class _Settings extends State<Settings> {
         String balanceFormatted = balance.toStringAsFixed(2);
         message = "$code has a balance of \$$balanceFormatted";
       }
-      showDialog(context: context, builder: (context) => AlertDialog(
-        title: Text("Account balance"),
-        content: Text(message),
-        actions: [
-          OutlinedButton(
-            child: new Text("OK", style: TextStyle(color: Colors.white)),
-            onPressed: () => Navigator.pop(context),
-            style: ButtonStyle(
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
-                backgroundColor: MaterialStateProperty.all(Colors.blue)
-            ),
-          )
-        ],
-      ));
+      showDialog(context: context, builder: (context) => createPopupMessage(context, "Account Balance", message));
     });
   }
 
